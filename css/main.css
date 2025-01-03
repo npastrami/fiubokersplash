@@ -1,0 +1,240 @@
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+h2 {
+  font-weight: 400;
+}
+
+a, a:visited {
+  color: #016699;
+}
+
+section {
+  padding: 10vh 0;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+section.dark, footer.dark, #header.dark {
+  background-color: #000E1F;
+  color: white;
+}
+
+section.blue, footer.blue {
+  background-color: #016699;
+  color: white;
+}
+
+#header {
+  height: 12vh;
+  padding: 2vh;
+  vertical-align: middle;
+}
+
+.center {
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 5vh;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+  font-size: 3em;
+  line-height: 1.5em;
+}
+
+.text {
+  margin-bottom: 2vh;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.logo {
+  max-width: 100vw;
+  max-height: 40vh;
+  margin-bottom: 8vh;
+}
+
+.header-logo {
+  max-height: 8vh;
+}
+
+.bg {
+  position: absolute;
+  bottom: 0;
+  height: 100vh;
+  opacity: 0.1;
+}
+
+.bg.right {
+  right: 0;
+}
+
+.bg.left {
+  left: 0;
+}
+
+img {
+  vertical-align: middle;
+}
+
+.platinum, .gold, .silver {
+  margin-top: 20px;
+}
+
+.gold {
+  border-top: solid 4px #c29a36;
+}
+
+.silver {
+  border-top: solid 4px #82969a;
+}
+
+.platinum img {
+  margin: 20px;
+  max-height: 25vh;
+  max-width: 50%;
+}
+
+.gold img {
+  margin: 20px;
+  max-height: 12vh;
+  max-width: 30%;
+}
+
+.silver img {
+  margin: 20px;
+  max-height: 9vh;
+  max-width: 25%;
+}
+
+.team.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 1fr;
+  grid-gap: 20px;
+  padding-bottom: 40px; }
+  .team.grid .alumni img {
+    filter: grayscale(0) contrast(0.8); }
+
+.banner {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #000E1F; /* Dark navy blue background */
+  color: #fff; /* White text */
+  font-family: "Raleway", sans-serif; /* Same font as .title */
+  font-weight: 500; /* Same font weight as .title */
+  font-size: 3em; /* Same font size as .title */
+  line-height: 1.5em; /* Same line height as .title */
+  width: 100%; /* Make the banner go across the whole page */
+  position: relative; /* Center the banner */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5vh; /* Same margin as .title */
+}
+
+.team.grid::before {
+  content: "";
+  width: 0;
+  padding-bottom: 100%;
+  grid-row: 1 / 1;
+  grid-column: 1 / 1; }
+
+.team.grid > *:first-child {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1; }
+
+.team.single {
+  color: white;
+  position: relative; }
+  .team.single img {
+    border-radius: 50%;
+    width: 75%;
+    height: 75%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-position: center;
+    background-size: cover;
+    filter: contrast(0.8); }
+  .team.single .about {
+    text-align: left;
+    position: absolute;
+    bottom: 20px;
+    left: 20px; }
+  .team.single .name {
+    font-size: 1.5em; }
+  .team.single .position {
+    font-weight: bold; }
+
+@media screen and (max-width: 730px) {
+  .team.grid {
+    grid-template-columns: repeat(3, 1fr); } }
+
+@media screen and (max-width: 540px) {
+  .team.grid {
+    grid-template-columns: repeat(2, 1fr); } }
+
+#maintitle {
+  font-size: 3.5em;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+}
+
+#arrow {
+  position: absolute;
+  bottom: 20px;
+  margin: 0 auto;
+  color: white;
+}
+
+footer {
+  height: 120px;
+  padding-top: 10px;
+}
+
+footer .icons {
+  margin-bottom: 5px;
+}
+
+footer .icons a {
+  display: inline-block;
+  font-size: 1.3em;
+  color: rgba(242, 246, 249, 0.4) !important;
+  margin: 0px;
+}
+
+footer .copyright {
+  font-size: 1em;
+  margin: 10px 0 5px 0;
+}
+
+footer #elevator {
+  font-size: 0.8em;
+  color: rgba(242, 246, 249, 0.6) !important;
+  text-decoration: underline;
+}
+.register-btn {
+    background-color: #2185D0 !important;
+    color: white !important;
+    font-size: 1.5em !important;
+    padding: 20px 40px !important;
+    margin: 20px auto !important;
+    display: block !important;
+    width: fit-content !important;
+}
+
+.register-btn:hover {
+    background-color: #FFD700 !important;
+    color: black !important;
+}
