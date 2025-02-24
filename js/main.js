@@ -27,6 +27,8 @@ $(function() {
     $("#logo").rotate(rotation);
   });
 
+  createFloatingCards();
+  setInterval(createFloatingCards, 90000);
 
   $("#joinform").submit(function(e) {
     e.preventDefault();
@@ -73,4 +75,36 @@ $(function() {
     });
   })
 
+});
+
+function createFloatingCards() {
+  console.log("Creating floating cards..."); // Debug log
+  const container = document.getElementById('floatingCards');
+  if (!container) {
+      console.log("Container not found!"); // Debug log
+      return;
+  }
+  
+  container.innerHTML = '';
+  
+  const suits = ['\u2660', '\u2665', '\u2663', '\u2666'];
+  const numberOfCards = 12;
+  
+  for (let i = 0; i < numberOfCards; i++) {
+      const card = document.createElement('div');
+      card.className = `card ${i % 2 === 0 ? 'blue' : 'gold'}`;
+      card.textContent = suits[Math.floor(Math.random() * suits.length)];
+      
+      card.style.left = `${5 + Math.random() * 90}%`;
+      card.style.animationDuration = `${15 + Math.random() * 10}s`;
+      card.style.animationDelay = `${Math.random() * 5}s`;
+      card.style.fontSize = '64px';
+      
+      container.appendChild(card);
+      console.log("Card created:", card); // Debug log
+  }
+}
+console.log("main.js loaded");
+$(document).ready(function() {
+    console.log("Document ready");
 });
