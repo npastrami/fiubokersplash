@@ -28,7 +28,7 @@ $(function() {
   });
 
   createFloatingCards();
-  setInterval(createFloatingCards, 90000);
+  setInterval(createFloatingCards, 25000);
 
   $("#joinform").submit(function(e) {
     e.preventDefault();
@@ -77,33 +77,52 @@ $(function() {
 
 });
 
+// Original function with minimal modifications
 function createFloatingCards() {
-  console.log("Creating floating cards..."); // Debug log
   const container = document.getElementById('floatingCards');
-  if (!container) {
-      console.log("Container not found!"); // Debug log
-      return;
+  if (!container) return;
+  
+  // Create a hidden staging area outside the viewport
+  let stagingArea = document.getElementById('cardStaging');
+  if (!stagingArea) {
+    stagingArea = document.createElement('div');
+    stagingArea.id = 'cardStaging';
+    stagingArea.style.position = 'fixed';
+    stagingArea.style.left = '-9999px';
+    stagingArea.style.top = '-9999px';
+    stagingArea.style.visibility = 'hidden';
+    document.body.appendChild(stagingArea);
   }
   
+  // Clear existing cards
   container.innerHTML = '';
   
+  // Create all cards in the staging area first
   const suits = ['\u2660', '\u2665', '\u2663', '\u2666'];
   const numberOfCards = 12;
   
   for (let i = 0; i < numberOfCards; i++) {
-      const card = document.createElement('div');
-      card.className = `card ${i % 2 === 0 ? 'blue' : 'gold'}`;
-      card.textContent = suits[Math.floor(Math.random() * suits.length)];
-      
-      card.style.left = `${5 + Math.random() * 90}%`;
-      card.style.animationDuration = `${15 + Math.random() * 10}s`;
-      card.style.animationDelay = `${Math.random() * 5}s`;
-      card.style.fontSize = '64px';
-      
-      container.appendChild(card);
-      console.log("Card created:", card); // Debug log
+    const card = document.createElement('div');
+    card.className = `card ${i % 2 === 0 ? 'blue' : 'gold'}`;
+    card.textContent = suits[Math.floor(Math.random() * suits.length)];
+    card.style.left = `${5 + Math.random() * 90}%`;
+    card.style.opacity = '0';
+    
+    // Add to staging area first
+    stagingArea.appendChild(card);
+    
+    // Set animation properties
+    const duration = 15 + Math.random() * 10;
+    const delay = 1;
+    card.style.animation = `float ${duration}s linear ${delay}s forwards`;
+  }
+  
+  // Now move all cards to the actual container (already positioned correctly)
+  while (stagingArea.firstChild) {
+    container.appendChild(stagingArea.firstChild);
   }
 }
+
 console.log("main.js loaded");
 $(document).ready(function() {
     console.log("Document ready");
