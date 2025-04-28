@@ -92,11 +92,12 @@ img {
 
 .gold {
   border-top: solid 4px #c29a36;
+  
 }
 
-.silver {
+/* .silver {
   border-top: solid 4px #82969a;
-}
+} */
 
 .platinum img {
   margin: 20px;
